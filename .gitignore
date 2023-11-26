@@ -375,3 +375,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+static/
