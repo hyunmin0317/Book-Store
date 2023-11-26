@@ -376,3 +376,6 @@ dist-ssr
 *.sln
 *.sw?
 static/
+
+# properties files
+application-*.properties
