@@ -1,6 +1,7 @@
 package com.toy.bookstore.domain.account.dto;
 
 import com.toy.bookstore.domain.account.entity.User;
+import io.swagger.annotations.ApiModel;
 import lombok.Builder;
 import lombok.Data;
 
@@ -8,6 +9,7 @@ import lombok.Data;
 public class UserDto {
     @Data
     @Builder
+    @ApiModel(value = "UserDtoResponse")
     public static class Response {
         private String username;
         private String token;
@@ -22,6 +24,7 @@ public class UserDto {
 
     @Data
     @Builder
+    @ApiModel(value = "UserDtoRequest")
     public static class Request {
         private String username;
         private String password;
