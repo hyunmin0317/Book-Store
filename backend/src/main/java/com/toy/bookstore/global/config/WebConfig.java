@@ -24,5 +24,9 @@ public class WebConfig implements WebMvcConfigurer {
                                 requestResource : new ClassPathResource("/static/index.html");
                     }
                 });
+        registry.addResourceHandler("/api/**")
+                .resourceChain(false);
+        registry.addResourceHandler("/swagger-ui.html")
+                .addResourceLocations("classpath:/META-INF/resources/swagger-ui.html");
     }
 }
