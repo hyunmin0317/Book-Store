@@ -22,4 +22,9 @@ public class AccountController {
         UserDto.Response response = accountService.signup(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
+    @PostMapping(value = "/login")
+    public ResponseEntity<UserDto.Response> signIn(@RequestBody UserDto.Request request) {
+        UserDto.Response response = accountService.signin(request);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
 }
