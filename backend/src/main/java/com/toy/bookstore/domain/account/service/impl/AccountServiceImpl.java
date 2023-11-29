@@ -32,6 +32,10 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public UserDto.Response signin(UserDto.Request request) {
-        return null;
+        User user = userRepository.getByUsername(request.getUsername());
+        if (!passwordEncoder.matches(request.getPassword(), user.getPassword()))
+            throw new RestException(HttpStatus.UNAUTHORIZED);
+        String token = jwtTokenProvider.createToken(user.getUsername());
+        return UserDto.Response.of(user.getUsername(), token);
     }
 }
